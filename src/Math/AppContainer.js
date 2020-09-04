@@ -1,11 +1,10 @@
+
 import React from "react";
 import Home from "./Home";
-import NovaPagina from "./NovaPagina";
-// import MenuNavBar from "./components/NavBar";
-// import Footer from "./components/Footer";
 import Services from "./Services";
+import { CadProfissional } from "./components/CadProfissional/CadProfissional";
 
-class App extends React.Component {
+export default class App extends React.Component {
   state = {
     screens: "home"
   };
@@ -25,7 +24,7 @@ class App extends React.Component {
       case "home":
         return (
           <Home
-            name={this.onClickMoveHome}
+
             name1={this.onClickMoveUser}
             name2={this.onClickMoveProfessional}
           />
@@ -33,15 +32,17 @@ class App extends React.Component {
       case "souUsuario":
         return <Services />;
       case "souProfissional":
-        return <NovaPagina />;
+        return <CadProfissional name={this.onClickMoveHome} />;
       default:
         return <Home />;
     }
   };
 
   render() {
-    return <div>{this.selectCurrentScreen()}</div>;
+
+    return (
+      <div>{this.selectCurrentScreen()}</div>
+    );
+
   }
 }
-
-export default App;
