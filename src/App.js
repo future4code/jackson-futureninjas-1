@@ -1,5 +1,5 @@
 import React from 'react'
-import { AppContainer } from './components/AppContainer'
+import { AppContainer } from './Math/AppContainer'
 
 function App() {
 	return (
