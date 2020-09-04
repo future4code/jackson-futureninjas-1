@@ -11,6 +11,8 @@ import Input from '@material-ui/core/Input';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import { Button, Grid, Paper } from '@material-ui/core';
 import { DivPrincipal, DivCad, InputLabe, AmountLabel, ButtonD } from '../../styles/styles'
+import NavBar from '../../NavBar';
+import Footer from '../../Footer';
 
 export class CadProfissional extends Component {
     state = {
@@ -79,81 +81,87 @@ export class CadProfissional extends Component {
 
     render() {
         return (
-            <DivPrincipal>
-                <Paper>
-                    <DivCad>
-                        <h2>Cadastrar</h2>
-                        {/* Input Título */}
-                        <InputLabe >
-                            <TextField id="input-title" label="Title:" type="text" value={this.state.Title} onChange={this.onchangeTitle} />
-                        </InputLabe>
+            <div>
+                <NavBar onClick={this.props.filho}/>
 
-                        {/* Input Descrição */}
-                        <InputLabe>
-                            <TextField id="input-description" label="Description:" type="text" value={this.state.Description} onChange={this.onchangeDescription} />
-                        </InputLabe>
+                <DivPrincipal>
 
-                        {/* Input Valor do serviço */}
-                        <AmountLabel>
-                            <FormControl fullWidth >
-                                <InputLabel htmlFor="standard-adornment-amount">Amount</InputLabel>
-                                <Input
-                                    type={'number'}
-                                    id="standard-adornment-amount"
-                                    value={this.state.Value}
-                                    min={0}
-                                    onChange={this.onchangeValue}
-                                    startAdornment={<InputAdornment position="start">$</InputAdornment>}
+                    <Paper>
+                        <DivCad>
+                            <h2>Cadastrar</h2>
+                            {/* Input Título */}
+                            <InputLabe >
+                                <TextField id="input-title" label="Title:" type="text" value={this.state.Title} onChange={this.onchangeTitle} />
+                            </InputLabe>
+
+                            {/* Input Descrição */}
+                            <InputLabe>
+                                <TextField id="input-description" label="Description:" type="text" value={this.state.Description} onChange={this.onchangeDescription} />
+                            </InputLabe>
+
+                            {/* Input Valor do serviço */}
+                            <AmountLabel>
+                                <FormControl fullWidth >
+                                    <InputLabel htmlFor="standard-adornment-amount">Amount</InputLabel>
+                                    <Input
+                                        type={'number'}
+                                        id="standard-adornment-amount"
+                                        value={this.state.Value}
+                                        min={0}
+                                        onChange={this.onchangeValue}
+                                        startAdornment={<InputAdornment position="start">$</InputAdornment>}
+                                    />
+                                </FormControl>
+                            </AmountLabel>
+
+                            {/* Método de pagamento com select */}
+                            <InputLabe>
+                                <FormControl >
+                                    <InputLabel id="demo-simple-select-helper-label">Payment Methods:</InputLabel>
+                                    <Select
+                                        labelId="demo-simple-select-helper-label"
+                                        id="demo-simple-select-helper"
+                                        value={this.state.PaymentMethods}
+                                        onChange={this.onchangePaymentMethods}
+                                    >
+                                        <MenuItem value="">
+                                            <em>None</em>
+                                        </MenuItem>
+                                        <MenuItem value="Boleto" key="Boleto">Boleto</MenuItem>
+                                        <MenuItem value="Cartão de Crédito" key="Cartão de Crédito">Cartão de Crédito</MenuItem>
+                                        <MenuItem value="Cartão de Débito" key="Cartão de Débito">Cartão de Débito</MenuItem>
+                                        <MenuItem value="Transferência Bancária" key="Transferência Bancária">Transferência Bancária</MenuItem>
+                                    </Select>
+                                    <FormHelperText>Some important helper text</FormHelperText>
+                                </FormControl>
+                            </InputLabe>
+
+                            {/* Pega o valor da Data */}
+                            <InputLabe>
+                                <TextField
+                                    onChange={this.onchangeDate}
+                                    value={this.state.Date}
+                                    id="date"
+                                    label="DueDate:"
+                                    type="date"
+                                    defaultValue="dd-MM-yyyy"
+                                    InputLabelProps={{
+                                        shrink: true,
+                                    }}
                                 />
-                            </FormControl>
-                        </AmountLabel>
+                            </InputLabe>
 
-                        {/* Método de pagamento com select */}
-                        <InputLabe>
-                            <FormControl >
-                                <InputLabel id="demo-simple-select-helper-label">Payment Methods:</InputLabel>
-                                <Select
-                                    labelId="demo-simple-select-helper-label"
-                                    id="demo-simple-select-helper"
-                                    value={this.state.PaymentMethods}
-                                    onChange={this.onchangePaymentMethods}
-                                >
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
-                                    <MenuItem value="Boleto" key="Boleto">Boleto</MenuItem>
-                                    <MenuItem value="Cartão de Crédito" key="Cartão de Crédito">Cartão de Crédito</MenuItem>
-                                    <MenuItem value="Cartão de Débito" key="Cartão de Débito">Cartão de Débito</MenuItem>
-                                    <MenuItem value="Transferência Bancária" key="Transferência Bancária">Transferência Bancária</MenuItem>
-                                </Select>
-                                <FormHelperText>Some important helper text</FormHelperText>
-                            </FormControl>
-                        </InputLabe>
+                            {/* Botão de Cadastrar */}
+                            <ButtonD>
 
-                        {/* Pega o valor da Data */}
-                        <InputLabe>
-                            <TextField
-                                onChange={this.onchangeDate}
-                                value={this.state.Date}
-                                id="date"
-                                label="DueDate:"
-                                type="date"
-                                defaultValue="dd-MM-yyyy"
-                                InputLabelProps={{
-                                    shrink: true,
-                                }}
-                            />
-                        </InputLabe>
+                                <Button onClick={() => this.NewProfessional()} variant="contained" color="primary" onKeyDown={this.onEnter}>Cadastrar</Button>
+                            </ButtonD>
 
-                        {/* Botão de Cadastrar */}
-                        <ButtonD>
-                            <Button onClick={() => this.NewProfessional()} variant="contained" color="primary" onKeyDown={this.onEnter}>Cadastrar</Button>
-                        </ButtonD>
-
-                    </DivCad>
-                </Paper>
-            </DivPrincipal>
-
+                        </DivCad>
+                    </Paper>
+                </DivPrincipal>
+                <Footer />
+            </div>
         )
     }
 }
