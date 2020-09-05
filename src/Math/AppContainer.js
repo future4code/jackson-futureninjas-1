@@ -1,7 +1,7 @@
 
 import React from "react";
 import Home from "./Home";
-import Services from "./Services";
+import Jobs from "../components/Jobs/Jobs";
 import { CadProfissional } from "./components/CadProfissional/CadProfissional";
 
 export default class App extends React.Component {
@@ -30,9 +30,13 @@ export default class App extends React.Component {
           />
         );
       case "souUsuario":
-        return <Services />;
+        return <Jobs
+          name1={this.onClickMoveUser}
+          name2={this.onClickMoveProfessional} />;
       case "souProfissional":
-        return <CadProfissional name={this.onClickMoveHome} />;
+        return <CadProfissional
+          name1={this.onClickMoveUser}
+          name2={this.onClickMoveProfessional} />;
       default:
         return <Home />;
     }
