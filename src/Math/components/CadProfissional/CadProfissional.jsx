@@ -82,7 +82,9 @@ export class CadProfissional extends Component {
     render() {
         return (
             <div>
-                <NavBar onClick={this.props.filho}/>
+                <NavBar filho={this.props.name}
+                    filho1={this.props.name1}
+                    filho2={this.props.name2} />
 
                 <DivPrincipal>
 

@@ -4,6 +4,8 @@ import axios from 'axios'
 import CardJob from './CardJob'
 import Input from '@material-ui/core/TextField'
 import Select from '@material-ui/core/NativeSelect'
+import NavBar from '../../Math/NavBar'
+import Footer from '../../Math/Footer'
 
 const DivBody = styled.div`
     min-height: 100vh;
@@ -94,26 +96,26 @@ class Jobs extends React.Component {
     }
 
     onChangeMaxValue = (event) => {
-        this.setState({inputMaxValue: event.target.value})
+        this.setState({ inputMaxValue: event.target.value })
     }
 
     onChangeMinValue = (event) => {
-        this.setState({inputMinValue: event.target.value})
+        this.setState({ inputMinValue: event.target.value })
     }
 
     onChangeTitle = (event) => {
-        this.setState({inputTitle: event.target.value})
+        this.setState({ inputTitle: event.target.value })
     }
 
     onChangeDescription = (event) => {
-        this.setState({inputDescription: event.target.value})
+        this.setState({ inputDescription: event.target.value })
     }
 
     onChangeSelectOrder = (event) => {
-        this.setState({selectOrder: event.target.value})
+        this.setState({ selectOrder: event.target.value })
     }
 
-    
+
     onClickFilter = () => {
 
         if (this.state.inputMinValue !== "" || this.state.inputMaxValue !== "") {
@@ -130,12 +132,12 @@ class Jobs extends React.Component {
                     if (Number(job.value) >= this.state.inputMinValue) {
                         return true
                     }
-                } 
+                }
             })
 
             this.setState({
-                listFilter: newFilteredList, 
-                inputMinValue: "", 
+                listFilter: newFilteredList,
+                inputMinValue: "",
                 inputMaxValue: ""
             })
 
@@ -145,8 +147,8 @@ class Jobs extends React.Component {
             })
 
             this.setState({ listFilter: newFilteredList2 })
-        } 
-        
+        }
+
         if (this.state.inputTitle !== "" && this.state.inputDescription === "") {
             const newFilteredList3 = this.state.listJobs.filter((job) => {
                 if (this.state.inputTitle === job.title) {
@@ -155,11 +157,11 @@ class Jobs extends React.Component {
             })
 
             this.setState({
-                listFilter: newFilteredList3, 
+                listFilter: newFilteredList3,
                 inputTitle: ""
             })
         }
-        
+
         if (this.state.inputDescription !== "" && this.state.inputTitle === "") {
             const newFilteredList4 = this.state.listJobs.filter((job) => {
                 if (this.state.inputDescription === job.description) {
@@ -172,11 +174,11 @@ class Jobs extends React.Component {
                 inputDescription: ""
             })
         }
-    } 
+    }
 
 
     render() {
-        
+
         function orderTitleAZ(a, b) {
             return (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0);
         }
@@ -185,22 +187,22 @@ class Jobs extends React.Component {
             return (b.title > a.title) ? 1 : ((a.title > b.title) ? -1 : 0);
         }
 
-        function orderLowerPrice (a, b) {
+        function orderLowerPrice(a, b) {
             return a.value - b.value
         }
-        function orderHigherPrice (a, b) {
+        function orderHigherPrice(a, b) {
             return b.value - a.value
         }
 
-        function lowestDeadline (a,b) {
+        function lowestDeadline(a, b) {
             return (a.dueDate > b.dueDate) ? 1 : ((b.dueDate > a.dueDate) ? -1 : 0);
         }
-        function biggestDeadline (a,b) {
+        function biggestDeadline(a, b) {
             return (b.dueDate > a.dueDate) ? 1 : ((a.dueDate > b.dueDate) ? -1 : 0);
         }
 
-        
-        switch(this.state.selectOrder){
+
+        switch (this.state.selectOrder) {
             case 'OrderAZ':
                 this.state.listJobs.sort(orderTitleAZ)
                 this.state.listFilter.sort(orderTitleAZ)
@@ -229,53 +231,60 @@ class Jobs extends React.Component {
         }
 
         return (
-            <DivBody>
-                <DivFilter>
-                    <h2>Filtro</h2>
-                    <Input
-                        label = "Valor Mínimo"
-                        onChange={this.onChangeMinValue}
-                        value={this.state.inputMinValue}
-                    />
-                    <Input
-                        label = "Valor Máximo"
-                        onChange={this.onChangeMaxValue}
-                        value={this.state.inputMaxValue}
-                    />
-                    <Input 
-                        label = "Título"
-                        onChange={this.onChangeTitle}
-                        value={this.state.inputTitle}
-                    />
-                    <Input
-                        label = "Descrição"
-                        onChange={this.onChangeDescription}
-                        value={this.state.inputDescription}
-                    />
-                    <ButtonCreation onClick={this.onClickFilter}>Filtrar</ButtonCreation>
-                </DivFilter>
-                <DivCards>
-                    <DivTop>
-                        <h2>Serviços</h2>
-                        <Option onChange={this.onChangeSelectOrder} value={this.state.selectOrder}> 
-                            <option value="">Ordenar por: </option>
-                            <option value="orderLowerPrice">Menor Preço</option>
-                            <option value="orderHigherPrice">Maior Preço</option>
-                            <option value="OrderAZ">Ordem alfábetica de A-Z</option>
-                            <option value="OrderZA">Ordem alfabética de Z-A</option>
-                            <option value="lowestDeadline">Menor Prazo</option>
-                            <option value="biggestDeadline">Maior Prazo</option>
-                        </Option>
-                    </DivTop>
-                    
-                    <Cards>
-                        <CardJob 
-                            list={this.state.listFilter}
-                            update={this.getJobs}
+            <div>
+                <NavBar filho={this.props.name}
+                    filho1={this.props.name1}
+                    filho2={this.props.name2} />
+                <DivBody>
+                    <DivFilter>
+                        <h2>Filtro</h2>
+                        <Input
+                            label="Valor Mínimo"
+                            onChange={this.onChangeMinValue}
+                            value={this.state.inputMinValue}
                         />
-                    </Cards>
-                </DivCards>
-            </DivBody>
+                        <Input
+                            label="Valor Máximo"
+                            onChange={this.onChangeMaxValue}
+                            value={this.state.inputMaxValue}
+                        />
+                        <Input
+                            label="Título"
+                            onChange={this.onChangeTitle}
+                            value={this.state.inputTitle}
+                        />
+                        <Input
+                            label="Descrição"
+                            onChange={this.onChangeDescription}
+                            value={this.state.inputDescription}
+                        />
+                        <ButtonCreation onClick={this.onClickFilter}>Filtrar</ButtonCreation>
+                    </DivFilter>
+                    <DivCards>
+                        <DivTop>
+                            <h2>Serviços</h2>
+                            <Option onChange={this.onChangeSelectOrder} value={this.state.selectOrder}>
+                                <option value="">Ordenar por: </option>
+                                <option value="orderLowerPrice">Menor Preço</option>
+                                <option value="orderHigherPrice">Maior Preço</option>
+                                <option value="OrderAZ">Ordem alfábetica de A-Z</option>
+                                <option value="OrderZA">Ordem alfabética de Z-A</option>
+                                <option value="lowestDeadline">Menor Prazo</option>
+                                <option value="biggestDeadline">Maior Prazo</option>
+                            </Option>
+                        </DivTop>
+
+                        <Cards>
+                            <CardJob
+                                list={this.state.listFilter}
+                                update={this.getJobs}
+                            />
+                        </Cards>
+                    </DivCards>
+                </DivBody>
+                <Footer />
+            </div>
+
         )
 
     }
