@@ -1,10 +1,14 @@
 import React from 'react'
-import { AppContainer } from './components/AppContainer'
+import  AppContainer  from './Math/AppContainer'
 
-function App() {
-	return (
+class App extends React.Component {
+	render(){
+
+		return (
         <AppContainer />
 	)
 }
 
+	}
+	
 export default App
