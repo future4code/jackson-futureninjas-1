@@ -2,8 +2,7 @@ import React from 'react'
 import styled from "styled-components";
 import App from '../../../App';
 import load from './img/giphy.gif'
-import Gif from './img/ghy.gif'
-import Bg from  './img/background11.jpg'
+import Bg from './img/FundoRaiozinho.png'
 
 const Header = styled.div`
 min-height: 100vh;
@@ -12,8 +11,6 @@ background-color: #181414;
 display: flex;
 justify-content: center;
 align-items: center;
-z-index: 111;
-
 img {
     height: 60vmin;
 }
@@ -35,7 +32,7 @@ export default class Load extends React.Component {
             <div>
                 {!this.state.done ? (
                     <Header>
-                        <img src={Gif} alt="" />
+                        <img src={load} alt="" />
                     </Header>
                 ) : (
                         <App />

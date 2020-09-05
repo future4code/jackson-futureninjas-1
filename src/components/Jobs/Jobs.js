@@ -232,8 +232,7 @@ class Jobs extends React.Component {
 
         return (
             <div>
-                <NavBar 
-                filho={this.props.name}
+                <NavBar filho={this.props.name}
                     filho1={this.props.name1}
                     filho2={this.props.name2} />
                 <DivBody>

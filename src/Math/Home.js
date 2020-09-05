@@ -13,10 +13,7 @@ import Card4 from "./img/service4.png";
 import Services from "./Services";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
-import Background from "./img/background11.jpg";
-import { Input } from "@material-ui/core";
-
-
+import Background from "./img/background3.jpg";
 
 //parte da estilização
 const Container = styled.div`
@@ -36,14 +33,10 @@ const Body = styled.div`
   background-image: url(${Background});
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
 `;
 const Label = styled.label`
   display: flex;
   align-items: center;
-  Input {
-    color: white;
-  }
 `;
 
 const NavbarItens = styled.div`
@@ -71,28 +64,9 @@ const CardImg = styled.img`
   height: 7vh;
 `;
 
-const DivImg = styled.div`
-display: flex;
-justify-items: center;
-align-items: center;
-border: 2px solid black;
-border-radius: 10px;
-margin-left: 1vw;
-background-color: rgba(36, 44, 46, 0.3);
-`;
-
-
 const Imagem = styled.img`
-  background-color: rgb(236,235,242, 0.7);
-  border-radius: 7px;
-  transition: all 0.5s;
-  padding: 2px;
-:hover {
-  transform: scale(0.9);
-  transition: all 0.5s;
+  margin-left: 1vw;
   cursor: pointer;
-  margin: 2px;
-}
 `;
 
 const TitleD = styled.div`
@@ -148,12 +122,6 @@ class Home extends React.Component {
   //   this.setState({ nameValue: "" });
   // };
 
-  OnEnter = (e) => {
-    if (e.key === "Enter") {
-      this.props.name1()
-    }
-  }
-
   onChangeName = (event) => {
     this.setState({ nameValue: event.target.value });
   };
@@ -162,10 +130,8 @@ class Home extends React.Component {
   };
 
   render() {
-    { console.log(this.props.name1) }
     return (
       <Body>
-
         <NavBar
           filho={this.props.name}
           filho1={this.props.name1}
@@ -181,20 +147,16 @@ class Home extends React.Component {
               seus problemas e realizar projetos que você sonha.
             </Parag>
             <Label>
-              <Input
+              <TextBox
                 value={this.state.nameValue}
                 onChange={this.onChangeName}
-                placeholder="Nome do serviço"
-                onKeyPress={this.OnEnter}
+                placeholder="nome"
               />
-              <DivImg>
-                <Imagem
-                  onClick={this.props.name1}
-                  src={Icone}
-                  width="20px"
-                />
-              </DivImg>
-
+              <Imagem
+                onClick={this.irPraOutraPagina}
+                src={Icone}
+                width="20px"
+              />
             </Label>
           </DivTop>
         </Container>

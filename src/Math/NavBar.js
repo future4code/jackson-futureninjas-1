@@ -21,11 +21,6 @@ const Imagem = styled.img`
   box-shadow: 2px 2px 2px black;
   width: 5vw;
   margin-top: 0.4vh;
-
-  :hover {
-    cursor: pointer;
-  box-shadow:  2px 2px 9px black;
-  }
 `;
 
 const Menu = styled.label`
@@ -58,7 +53,7 @@ class MenuNavBar extends React.Component {
   render() {
     return (
       <Navegation>
-        <Imagem src={Logo} alt="logo empresa" onClick={this.props.filho}></Imagem>
+        <Imagem src={Logo} alt="logo empresa"></Imagem>
         <Buttons>
           <Menu onClick={this.props.filho}>Início</Menu>
           <Menu onClick={this.props.filho1}>Sou usuario</Menu>

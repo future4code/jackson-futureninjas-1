@@ -19,10 +19,8 @@ export const DivCad = styled.div`
     align-items: center;
     color: black;
     font-weight: bold;
+
     border-radius: 3px;
-    h2 {
-        margin: 15px 0;
-    }
 /* background-color: #868686; */
     /* background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 0%, #2B86C5 100%); */
     /* background: linear-gradient(to right, #2b5876, #4e4376); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -46,6 +44,7 @@ display: flex;
     
     label {
         font-weight: bold;
+
         font-size: 17px;
     }
     input {
