@@ -24,17 +24,20 @@ export default class App extends React.Component {
       case "home":
         return (
           <Home
-
+            name={this.onClickMoveHome}
             name1={this.onClickMoveUser}
             name2={this.onClickMoveProfessional}
           />
         );
       case "souUsuario":
         return <Jobs
+          name={this.onClickMoveHome}
           name1={this.onClickMoveUser}
-          name2={this.onClickMoveProfessional} />;
+          name2={this.onClickMoveProfessional} 
+          />;
       case "souProfissional":
         return <CadProfissional
+          name={this.onClickMoveHome}
           name1={this.onClickMoveUser}
           name2={this.onClickMoveProfessional} />;
       default:
