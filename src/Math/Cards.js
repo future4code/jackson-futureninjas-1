@@ -9,8 +9,10 @@ const CardCenter = styled.div`
   text-align: center;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-content: center;
-  margin-bottom: 3vh;
+  padding-bottom: 6vh;
+  width: 50%;
 `;
 
 const CardImg = styled.img`
