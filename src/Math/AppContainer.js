@@ -1,8 +1,8 @@
 
 import React from "react";
-import Home from "./Home";
+import Home from "../components/Home/Home";
 import Jobs from "../components/Jobs/Jobs";
-import { CadProfissional } from "./components/CadProfissional/CadProfissional";
+import { CadProfissional } from "../components/CadProfissional/CadProfissional";
 
 export default class App extends React.Component {
   state = {
