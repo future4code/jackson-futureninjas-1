@@ -3,6 +3,28 @@ import styled from "styled-components";
 import Background from "../Assets/img/background11.jpg";
 // Select do Jobs
 import Select from '@material-ui/core/NativeSelect'
+// import {device} from "./MediaQuery"
+
+//  const size = {
+//     mobileS: '320px',
+//     mobileM: '375px',
+//     mobileL: '425px',
+//     tablet: '768px',
+//     laptop: '1024px',
+//     laptopL: '1440px',
+//     desktop: '2560px'
+//   }
+
+//    const device = {
+//     mobileS: `(min-width: ${size.mobileS})`,
+//     mobileM: `(min-width: ${size.mobileM})`,
+//     mobileL: `(min-width: ${size.mobileL})`,
+//     tablet: `(min-width: ${size.tablet})`,
+//     laptop: `(min-width: ${size.laptop})`,
+//     laptopL: `(min-width: ${size.laptopL})`,
+//     desktop: `(min-width: ${size.desktop})`,
+//     desktopL: `(min-width: ${size.desktop})`
+//   };
 
 // 1 NAVBAR
 // 2 FOOTER
@@ -35,6 +57,10 @@ export const ImagemNavBar = styled.img`
         cursor: pointer;
     box-shadow:  2px 2px 9px black;
     }
+    @media screen and (min-width: 200px) and (max-width:766px) {
+        width:10vw
+       
+      }
 `;
 
 export const Menu = styled.label`
@@ -49,14 +75,22 @@ export const Menu = styled.label`
     &:hover {
         border-radius: 10px;
         background-color: #404040;
-    /* transition: 0.7s; */
+     transition: 0.7s; 
     transform: scale(1);
     }
+    @media screen and (min-width: 200px) and (max-width:766px) {
+        font-size:4vw;
+        padding: 0;
+       
+      }
 `;
 export const Buttons = styled.div`
     display: flex;
     justify-content: space-evenly;
     width: 60%;
+    @media screen and (min-width: 200px) and (max-width:766px) {
+        align-items:center
+      }
 `;
 
 // - - -    - - -    - - - 
@@ -73,6 +107,12 @@ export const ModTop = styled.div`
   /* align-items: center; */
     width: 100%;
     height: 100%;
+    @media screen and (min-width: 200px) and (max-width:766px) {
+        flex-direction: column;
+        padding-top:5px
+       
+      }
+   
 ;`
 
 
@@ -86,6 +126,10 @@ export const ModMid = styled.div`
 export const Redes = styled.img`
     width: 2vw;
     margin-left: 1vw;
+    @media screen and (min-width: 200px) and (max-width:766px) {
+        width:5vw
+      }
+    
 `;
 export const Logo = styled.img`
     width: 4vmin;
@@ -103,15 +147,31 @@ export const ContainerFooter = styled.div`
     background-color: #8d6ad9;
     background-image: linear-gradient(175deg, #9e82d9 50%, #8d6ad9 70%);
     border-top: 2px solid black;
+    @media screen and (min-width: 200px) and (max-width:766px) {
+        height:50vh;
+      
+      
+       }
+   
 `;
 export const MainTitle = styled.div`
     text-align: center;
     height: 5vh;
+    @media screen and (min-width: 200px) and (max-width:766px) {
+       margin-bottom:10vh
+       
+      }
+    
 `;
 export const TitleH3 = styled.h3`
     font-family: "Merienda";
     font-size: 1.2vw;
     cursor: default;
+    @media screen and (min-width: 200px) and (max-width:766px) {
+       font-size:8vw;
+       
+      }
+    
 `;
 export const CopyRigth = styled.p`
     width: 100%;
@@ -129,6 +189,9 @@ export const Title = styled.p`
         transition: 0.7s;
         cursor: pointer;
 }
+@media screen and (min-width: 200px) and (max-width:766px) {
+    font-size:4vw;
+   }
 `;
 // - - -    - - -    - - - 
 
@@ -139,7 +202,12 @@ export const Title = styled.p`
 export const Container = styled.div`
     display: flex;
     justify-content: center;
+    @media screen and (min-width: 200px) and (max-width:766px) {
+        flex-direction: column;
+      }
+      
 `;
+
 
 export const TitleF = styled.h2`
     display: flex;
@@ -148,7 +216,12 @@ export const TitleF = styled.h2`
     font-size: 2.1vw;
     font-family: "Trade Winds";
     color: #ecebf2;
+    @media screen and (min-width: 200px) and (max-width:766px) {
+        font-size:5vw;
+        text-align:center
+      }
 `;
+
 
 export const Body = styled.div`
     background-image: url(${Background});
@@ -171,6 +244,14 @@ export const NavbarItens = styled.div`
     width: 80%;
     margin: 0 auto;
     margin-top: 2%;
+  
+        
+      @media screen and (min-width: 200px) and (max-width:766px) {
+          flex-direction:column;
+          align-items:center;
+          width:10vw;
+          margin-top:10vh
+      }
 `;
 
 export const Itens = styled.a`
@@ -183,6 +264,11 @@ export const Itens = styled.a`
     display: flex;
     justify-content: center;
     align-items: center;
+      
+    @media screen and (min-width: 200px) and (max-width:766px) {
+        margin-top:2vh;
+        width:15vw
+    }
 `;
 
 export const CardImg = styled.img`
@@ -224,6 +310,12 @@ export const TitleD = styled.div`
 
 export const Imgb = styled.img`
     width: 30vw;
+
+    @media screen and (min-width: 200px) and (max-width:766px){
+        display: block;
+        margin-left: auto;
+        margin-right: auto
+    }
 `;
 
 export const Parag = styled.p`
@@ -233,6 +325,10 @@ export const Parag = styled.p`
     font-family: "Vidaloka";
     font-size: 2.5vh;
     color: #ecebf2;
+    @media screen and (min-width: 200px) and (max-width:766px) {
+        width:100%;
+        text-align:center
+      }
 `;
 
 export const Parag1 = styled.p`
@@ -243,11 +339,19 @@ export const Parag1 = styled.p`
     font-family: "Vidaloka";
     font-size: 1vw;
     color: #ecebf2;
+    @media screen and (min-width: 200px) and (max-width:766px) {
+        font-size:4vw;
+        
+       }
 `;
 export const TitleH2 = styled.h2`
     font-size: 2vw;
     font-family: "Trade Winds";
     color: #ffff;
+    @media screen and (min-width: 200px) and (max-width:766px) {
+       font-size:7vw;
+        text-align:center
+      }
 `;
 export const TextBox = styled.input`
     width: 10vw;
@@ -260,7 +364,6 @@ display: flex;
 
     margin-bottom: 3vh;
     width: 100vw;
-
 `;
 
 export const DivSecundary = styled.div`
@@ -303,6 +406,7 @@ export const Cards = styled.div`
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    
 `
 
 export const ButtonCreation = styled.button`
