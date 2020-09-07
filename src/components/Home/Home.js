@@ -12,6 +12,7 @@ import Card4 from "../../Assets/img/service4.png";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 import { Input } from "@material-ui/core";
+import {device} from "../../Styles/MediaQuery";
 import { Container, DivTopHome, Label, Itens, CardImg, Body, Imgb, TitleF, Parag, DivImg, Imagem, NavbarItens, TitleD, TitleH2, Parag1, DivSecundary } from "../../Styles/styles";
 
 
@@ -119,9 +120,9 @@ class Home extends React.Component {
             name2="Negocie diretamente com os profissionais, 
             combinando valores acessiveis pro seu bolso."
           />
-
+          </div>
           <Footer />
-        </div>
+        
       </Body>
     );
   }
