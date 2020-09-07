@@ -1,70 +1,13 @@
 import React from 'react'
-import styled from 'styled-components'
 import axios from 'axios'
 import CardJob from './CardJob'
 import Input from '@material-ui/core/TextField'
-import Select from '@material-ui/core/NativeSelect'
-import NavBar from '../../Math/NavBar'
-import Footer from '../../Math/Footer'
-
-const DivBody = styled.div`
-    min-height: 100vh;
-
-    background-image: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
-
-    display: flex;
-    justify-content: space-between;
-`
-
-const DivFilter = styled.div`
-    width: 18vw;
-    padding: 16px;
-    
-    display: flex;
-    flex-direction: column;
-`
-const DivCards = styled.div`
-    width: 82vw;
-`
-
-const DivTop = styled.div`
-    display: flex;
-    justify-content: space-between;
-
-    padding: 16px 30px;
-`
-
-const Cards = styled.div`
-
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-`
-
-const ButtonCreation = styled.button`
-    margin: 12.5px;
-    height: 40px;
-    width: 100px;
-    background-color: #ECEBF2;
-    box-shadow: 2px 3px 10px rgba(50, 50, 50, 0.77);
-    color: black;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    outline:none;
-    :hover{
-        background-color: #8D6AD9;
-        color: white;
-    }
-
-    align-self: center;
-`
-
-const Option = styled(Select)`
-    color: #737373;
-`
-
-const baseUrl = "https://us-central1-labenu-apis.cloudfunctions.net/futureNinjasOne/jobs"
+import NavBar from "../NavBar/NavBar";
+import Footer from '../Footer/Footer'
+import { DivBody, DivFilter, ButtonCreation, DivTopJobs, Cards, DivCards, Option, DivSelect } from '../../Styles/styles'
+import { Select, MenuItem, FormControl, FormLabel, FormHelperText } from '@material-ui/core'
+import InputLabel from '@material-ui/core/InputLabel'
+import {Url } from '../../ConstsAxios/ConstsAxios';
 
 class Jobs extends React.Component {
 
@@ -83,7 +26,7 @@ class Jobs extends React.Component {
     }
 
     getJobs = () => {
-        axios.get(`${baseUrl}`)
+        axios.get(`${Url}`)
             .then((response) => {
                 this.setState({
                     listJobs: response.data.jobs,
@@ -232,8 +175,8 @@ class Jobs extends React.Component {
 
         return (
             <div>
-                <NavBar 
-                filho={this.props.name}
+                <NavBar
+                    filho={this.props.name}
                     filho1={this.props.name1}
                     filho2={this.props.name2} />
                 <DivBody>
@@ -262,18 +205,27 @@ class Jobs extends React.Component {
                         <ButtonCreation onClick={this.onClickFilter}>Filtrar</ButtonCreation>
                     </DivFilter>
                     <DivCards>
-                        <DivTop>
+                        <DivTopJobs>
                             <h2>Serviços</h2>
-                            <Option onChange={this.onChangeSelectOrder} value={this.state.selectOrder}>
-                                <option value="">Ordenar por: </option>
-                                <option value="orderLowerPrice">Menor Preço</option>
-                                <option value="orderHigherPrice">Maior Preço</option>
-                                <option value="OrderAZ">Ordem alfábetica de A-Z</option>
-                                <option value="OrderZA">Ordem alfabética de Z-A</option>
-                                <option value="lowestDeadline">Menor Prazo</option>
-                                <option value="biggestDeadline">Maior Prazo</option>
-                            </Option>
-                        </DivTop>
+                                <FormControl>
+                                    <InputLabel>Ordenar por:</InputLabel>
+                                    <Select
+                                        onChange={this.onChangeSelectOrder}
+                                        value={this.state.selectOrder}>
+                                        <MenuItem value="" id="demo-simple-select-helper-label">
+                                            <em>None</em>
+                                        </MenuItem>
+                                        <MenuItem value="orderLowerPrice">Menor Preço</MenuItem>
+                                        <MenuItem value="orderHigherPrice">Maior Preço</MenuItem>
+                                        <MenuItem value="OrderAZ">Ordem alfábetica de A-Z</MenuItem>
+                                        <MenuItem value="OrderZA">Ordem alfabética de Z-A</MenuItem>
+                                        <MenuItem value="lowestDeadline">Menor Prazo</MenuItem>
+                                        <MenuItem value="biggestDeadline">Maior Prazo</MenuItem>
+                                    </Select>
+                                    <FormHelperText>Filtre todos os produtos</FormHelperText>
+
+                                </FormControl>
+                        </DivTopJobs>
 
                         <Cards>
                             <CardJob
