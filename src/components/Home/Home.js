@@ -12,8 +12,50 @@ import Card4 from "../../Assets/img/service4.png";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 import { Input } from "@material-ui/core";
-import {device} from "../../Styles/MediaQuery";
+import { device } from "../../Styles/MediaQuery";
 import { Container, DivTopHome, Label, Itens, CardImg, Body, Imgb, TitleF, Parag, DivImg, Imagem, NavbarItens, TitleD, TitleH2, Parag1, DivSecundary } from "../../Styles/styles";
+import styled from "styled-components";
+
+const LegendCardSpan1 = styled.span`
+:hover span, label{
+  opacity: 1;
+
+}
+text-align: center;
+cursor: help;
+
+`;
+
+const LegendCard1 = styled.span`
+
+background-color: white;
+color: black;
+font-weight: bold;
+display: block;
+opacity: 0;
+position: absolute;
+top: 67%;
+margin-right: 40px;
+padding: 15px 20px;
+transition: all .5s ease-in-out;
+transition-delay: 1s;
+box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+border: 7px solid black;
+border-radius: 10px;
+::after {
+  border-left: solid transparent 5px;
+  border-right: solid transparent 10px;
+  border-top: solid white 10px;
+  border-bottom-right-radius: 30px;
+  bottom: -10px;
+  content: "";
+  right: 5px;
+  margin-left: -13px;
+  position: absolute;
+  width: 0;
+}
+`;
+
 
 
 class Home extends React.Component {
@@ -81,18 +123,40 @@ class Home extends React.Component {
         </Container>
 
         <NavbarItens>
-          <Itens>
-            <CardImg src={Card1} />
-          </Itens>
-          <Itens>
-            <CardImg src={Card2} />
-          </Itens>
-          <Itens>
-            <CardImg src={Card3} />
-          </Itens>
-          <Itens>
-            <CardImg src={Card4} />
-          </Itens>
+          <LegendCardSpan1>
+
+            <Itens>
+              <LegendCard1>Design</LegendCard1>
+              <CardImg src={Card1} />
+            </Itens>
+
+          </LegendCardSpan1>
+
+          <LegendCardSpan1>
+            <Itens>
+              <LegendCard1>Life</LegendCard1>
+              <CardImg src={Card2} />
+            </Itens>
+
+          </LegendCardSpan1>
+
+          <LegendCardSpan1>
+
+            <Itens>
+              <LegendCard1>Education</LegendCard1>
+              <CardImg src={Card3} />
+            </Itens>
+
+          </LegendCardSpan1>
+
+          <LegendCardSpan1>
+
+            <Itens>
+              <LegendCard1>Engine</LegendCard1>
+              <CardImg src={Card4} />
+            </Itens>
+
+          </LegendCardSpan1>
         </NavbarItens>
 
         <TitleD>
@@ -120,9 +184,9 @@ class Home extends React.Component {
             name2="Negocie diretamente com os profissionais, 
             combinando valores acessiveis pro seu bolso."
           />
-          </div>
-          <Footer />
-        
+        </div>
+        <Footer />
+
       </Body>
     );
   }

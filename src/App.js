@@ -1,5 +1,5 @@
 import React from 'react'
-import  AppContainer  from './Math/AppContainer'
+import  AppContainer  from './AppContainer'
 
 class App extends React.Component {
 	render(){

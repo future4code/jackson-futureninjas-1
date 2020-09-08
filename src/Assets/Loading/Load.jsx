@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from "styled-components";
-import App from '../../../App';
+import App from '../../App';
 import load from './img/giphy.gif'
 import fff from './img/fffffffff.wmv'
 import g7 from './img/teste4.gif'
@@ -36,7 +36,7 @@ export default class Load extends React.Component {
     componentDidMount() {
         setTimeout(() => {
             this.setState({ done: true })
-        }, 200000);
+        }, 2000);
     }
 
     render() {
